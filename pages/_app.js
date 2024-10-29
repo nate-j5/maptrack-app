@@ -4,7 +4,7 @@ import '../src/app/globals.css'; // Ensure Tailwind and other global styles are 
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { initMixpanel } from '../src/lib/mixpanelService'; // Import Mixpanel init function
-import Head from 'next/router';
+import Head from 'next/head';
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
