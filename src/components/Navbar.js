@@ -20,7 +20,7 @@ function Navbar({ linkText }) {
         </a>
         <a
           className="text-gray-300 text-xs hover:text-white transition"
-          href="https://github.com/nate-j5"
+          href="https://github.com/nate-j5/maptrack-app"
           target="_blank" // Open link in a new tab
           rel="noopener noreferrer" // Security best practice
         >
