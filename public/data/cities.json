@@ -1,0 +1,81 @@
+[
+  {
+    "city": "San Diego",
+    "state": "California",
+    "latitude": 32.7157,
+    "longitude": -117.1611,
+    "population": "1,423,851",
+    "industries": [
+      { "name": "Technology", "percentage": 35 },
+      { "name": "Defense", "percentage": 25 },
+      { "name": "Tourism", "percentage": 20 },
+      { "name": "Healthcare", "percentage": 20 }
+    ]
+  },
+  {
+    "city": "Chicago",
+    "state": "Illinois",
+    "latitude": 41.8781,
+    "longitude": -87.6298,
+    "population": "2,693,976",
+    "industries": [
+      { "name": "Finance", "percentage": 30 },
+      { "name": "Healthcare", "percentage": 25 },
+      { "name": "Manufacturing", "percentage": 25 },
+      { "name": "Technology", "percentage": 20 }
+    ]
+  },
+  {
+    "city": "Austin",
+    "state": "Texas",
+    "latitude": 30.2672,
+    "longitude": -97.7431,
+    "population": "964,254",
+    "industries": [
+      { "name": "Technology", "percentage": 35 },
+      { "name": "Government", "percentage": 25 },
+      { "name": "Healthcare", "percentage": 20 },
+      { "name": "Education", "percentage": 20 }
+    ]
+  },
+  {
+    "city": "Miami",
+    "state": "Florida",
+    "latitude": 25.7617,
+    "longitude": -80.1918,
+    "population": "467,963",
+    "industries": [
+      { "name": "Tourism", "percentage": 40 },
+      { "name": "Finance", "percentage": 25 },
+      { "name": "Healthcare", "percentage": 20 },
+      { "name": "Technology", "percentage": 15 }
+    ]
+  },
+  {
+    "city": "New York",
+    "state": "New York",
+    "latitude": 40.7128,
+    "longitude": -74.006,
+    "population": "841,960",
+    "industries": [
+      { "name": "Finance", "percentage": 40 },
+      { "name": "Technology", "percentage": 30 },
+      { "name": "Tourism", "percentage": 15 },
+      { "name": "Healthcare", "percentage": 15 }
+    ]
+  },
+
+  {
+    "city": "Denver",
+    "state": "Colorado",
+    "latitude": 39.7392,
+    "longitude": -104.9903,
+    "population": "727,211",
+    "industries": [
+      { "name": "Technology", "percentage": 30 },
+      { "name": "Healthcare", "percentage": 25 },
+      { "name": "Aerospace", "percentage": 25 },
+      { "name": "Tourism", "percentage": 20 }
+    ]
+  }
+]
