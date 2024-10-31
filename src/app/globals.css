@@ -17,12 +17,11 @@
   }
 }
 
-/* Ensure body and html take full height */
 html,
 body {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
 body {

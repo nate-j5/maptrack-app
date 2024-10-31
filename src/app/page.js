@@ -1,3 +1,4 @@
+"use strict";
 "use client";
 
 import { useRef, useCallback, useState, useEffect } from "react";
@@ -22,24 +23,30 @@ export default function HomePage() {
   const [cityName, setCityName] = useState("");
 
   const onSelectCity = useCallback((selectedCity) => {
-    mapRef.current?.flyTo({
-      center: [selectedCity.longitude, selectedCity.latitude],
-      duration: 2000,
-    });
-    setCurrentCity({
-      longitude: selectedCity.longitude,
-      latitude: selectedCity.latitude,
-    });
-    setCityName(selectedCity.city);
+    if (mapRef.current) {
+      mapRef.current.flyTo({
+        center: [selectedCity.longitude, selectedCity.latitude],
+        duration: 2000,
+      });
+      setCurrentCity({
+        longitude: selectedCity.longitude,
+        latitude: selectedCity.latitude,
+      });
+      setCityName(selectedCity.city);
+    }
   }, []);
 
   useEffect(() => {
-    // Initialize Mixpanel
+    if (!MAPBOX_TOKEN) {
+      console.error("Mapbox token is missing");
+      return;
+    }
+
     initMixpanel();
 
     // Track the page view event
     trackEvent("Page Viewed", { page: "HomePage" });
-  }, []); // Empty dependency array means this runs once on component mount
+  }, []);
 
   return (
     <Layout linkText="View Analytics">

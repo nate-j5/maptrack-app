@@ -1,5 +1,4 @@
-This is a Sample App that uses Next.js and react-map-gl. 
-Mixpanel is used for analytics tracking.
+This is a small app that uses Next.js and react-map-gl to tracks events in mixpanel.
 
-
-More coming soon....
+Link: 
+https://mixpanel-map-app.onrender.com/

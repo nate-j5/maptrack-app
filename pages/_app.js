@@ -1,9 +1,9 @@
-// src/pages/_app.js
-import Layout from "../src/components/Layout"; // Ensure you import the Layout component
-import "../src/app/globals.css"; // Ensure Tailwind and other global styles are loaded
+"use strict";
+import Layout from "../src/components/Layout"; 
+import "../src/app/globals.css"; 
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { initMixpanel } from "../src/lib/mixpanelService"; // Import Mixpanel init function
+import { initMixpanel } from "../src/lib/mixpanelService"; 
 import Head from "next/head";
 
 export default function MyApp({ Component, pageProps }) {
@@ -16,19 +16,20 @@ export default function MyApp({ Component, pageProps }) {
     }
   }, []);
 
+  useEffect(() => {
+    //  Load Mapbox stylesheet conditionally if on a map-related page
+    if (router.pathname.includes("/map")) {
+      const mapboxLink = document.createElement("link");
+      mapboxLink.rel = "stylesheet";
+      mapboxLink.href = "https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css";
+      document.head.appendChild(mapboxLink);
+    }
+  }, [router.pathname]);
+
   return (
-    <Layout
-      linkText={isMixpanelPage ? "Back to Map" : "View Analytics"}
-      linkHref={isMixpanelPage ? "/" : "/mixpanel"}
-    >
+    <Layout>
       <Head>
-        {/* Check if the current route requires Mapbox styles */}
-        {router.pathname.includes("/map") && (
-          <link
-            href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
-            rel="stylesheet"
-          />
-        )}
+        <title>My App</title>
       </Head>
       <Component {...pageProps} />
     </Layout>

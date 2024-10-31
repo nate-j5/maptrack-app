@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+"use strict";
+import React, { useEffect, useState, useCallback } from "react";
 import CITIES from "../../public/data/cities.json";
 import { FaCheck } from "react-icons/fa6";
 import { BiParty } from "react-icons/bi";
-import { trackEvent } from "../lib/mixpanelService"; // Import trackEvent
+import { trackEvent } from "../lib/mixpanelService";
 
 function ControlPanel({ onSelectCity, selectedCity }) {
   const [currentCityData, setCurrentCityData] = useState(null);
@@ -16,20 +17,23 @@ function ControlPanel({ onSelectCity, selectedCity }) {
     }
   }, [selectedCity]);
 
-  const handleCitySelection = (city) => {
+  const handleCitySelection = useCallback((city) => {
     console.log(`Selected city: ${city.city}`);
-    trackEvent("City Selected", { city: city.city }); // Track event here
+    trackEvent("City Selected", { city: city.city });
     onSelectCity(city);
-  };
+    setShowThankYouMessage(false); // Reset message on new selection
+  }, [onSelectCity]);
 
-  const handleIndustryVote = (voteType) => {
-    trackEvent("Industry Vote", {
-      voteType,
-      city: currentCityData.city,
-    });
-    console.log(`Voted: ${voteType}`);
-    setShowThankYouMessage(true);
-  };
+  const handleIndustryVote = useCallback((voteType) => {
+    if (currentCityData?.city) {
+      trackEvent("Industry Vote", {
+        voteType,
+        city: currentCityData.city,
+      });
+      console.log(`Voted: ${voteType}`);
+      setShowThankYouMessage(true);
+    }
+  }, [currentCityData]);
 
   return (
     <div className="bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg absolute top-4 right-4 z-10">
@@ -46,7 +50,7 @@ function ControlPanel({ onSelectCity, selectedCity }) {
               type="radio"
               name="city"
               id={`city-${index}`}
-              onClick={() => handleCitySelection(city)} // Call function here
+              onChange={() => handleCitySelection(city)}
               className="mr-2 accent-green-500"
             />
             <label htmlFor={`city-${index}`} className="text-sm text-gray-200">
