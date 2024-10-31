@@ -20,7 +20,8 @@ const initialViewState = {
 export default function HomePage() {
   const mapRef = useRef(null);
   const [currentCity, setCurrentCity] = useState(null);
-  const [cityName, setCityName] = useState("");
+  const [cityName, setCityName] = useState(null);
+  const [currentCityData, setCurrentCityData] = useState(null);
 
   const onSelectCity = useCallback((selectedCity) => {
     if (mapRef.current) {
@@ -33,6 +34,7 @@ export default function HomePage() {
         latitude: selectedCity.latitude,
       });
       setCityName(selectedCity.city);
+      setCurrentCityData(selectedCity);
     }
   }, []);
 

@@ -13,27 +13,32 @@ function ControlPanel({ onSelectCity, selectedCity }) {
     if (selectedCity) {
       const foundCity = CITIES.find((city) => city.city === selectedCity.city);
       setCurrentCityData(foundCity);
-      setShowThankYouMessage(false);
     }
   }, [selectedCity]);
 
-  const handleCitySelection = useCallback((city) => {
-    console.log(`Selected city: ${city.city}`);
-    trackEvent("City Selected", { city: city.city });
-    onSelectCity(city);
-    setShowThankYouMessage(false); // Reset message on new selection
-  }, [onSelectCity]);
+  const handleCitySelection = useCallback(
+    (city) => {
+      console.log(`Selected city: ${city.city}`);
+      trackEvent("City Selected", { city: city.city });
+      onSelectCity(city);
+      setShowThankYouMessage(false); // Reset message on new selection
+    },
+    [onSelectCity]
+  );
 
-  const handleIndustryVote = useCallback((voteType) => {
-    if (currentCityData?.city) {
-      trackEvent("Industry Vote", {
-        voteType,
-        city: currentCityData.city,
-      });
-      console.log(`Voted: ${voteType}`);
-      setShowThankYouMessage(true);
-    }
-  }, [currentCityData]);
+  const handleIndustryVote = useCallback(
+    (voteType) => {
+      if (currentCityData?.city) {
+        trackEvent("Industry Vote", {
+          voteType,
+          city: currentCityData.city,
+        });
+        console.log(`Voted: ${voteType}`);
+        setShowThankYouMessage(true);
+      }
+    },
+    [currentCityData]
+  );
 
   return (
     <div className="bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg absolute top-4 right-4 z-10">
@@ -50,6 +55,7 @@ function ControlPanel({ onSelectCity, selectedCity }) {
               type="radio"
               name="city"
               id={`city-${index}`}
+              checked={selectedCity.city === city.city}
               onChange={() => handleCitySelection(city)}
               className="mr-2 accent-green-500"
             />
@@ -60,7 +66,7 @@ function ControlPanel({ onSelectCity, selectedCity }) {
         ))}
       </div>
 
-      {currentCityData && (
+      {currentCityData && selectedCity.city === currentCityData.city && (
         <div className="mt-6 p-4 bg-gray-800 rounded-md">
           <h4 className="text-lg font-normal text-white">
             {currentCityData.city}
@@ -103,7 +109,7 @@ function ControlPanel({ onSelectCity, selectedCity }) {
               Surprising
             </button>
             <button
-              className="flex-1 px-4 py-4 bg-slate-900 text-white rounded  hover:bg-slate-800 transition duration-200 flex items-center justify-center whitespace-nowrap"
+              className="flex-1 px-4 py-4 bg-slate-900 text-white rounded hover:bg-slate-800 transition duration-200 flex items-center justify-center whitespace-nowrap"
               onClick={() => handleIndustryVote("Not Surprising")}
             >
               <FaCheck className="mr-2" />

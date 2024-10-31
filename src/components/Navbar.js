@@ -13,8 +13,8 @@ function Navbar() {
         <a
           className="text-gray-300 text-xs hover:text-white transition"
           href="https://mixpanel.com/public/MJPKgaGaHdP8GKRCikSZwd"
-          target="_blank" 
-          rel="noopener noreferrer" 
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="View Analytics"
         >
           View Analytics
@@ -23,7 +23,7 @@ function Navbar() {
           className="text-gray-300 text-xs hover:text-white transition"
           href="https://github.com/nate-j5/maptrack-app"
           target="_blank"
-          rel="noopener noreferrer" 
+          rel="noopener noreferrer"
           aria-label="View Code"
         >
           View Code ↗
@@ -33,4 +33,4 @@ function Navbar() {
   );
 }
 
-export default React.memo(Navbar); 
+export default React.memo(Navbar);
