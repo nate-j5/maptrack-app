@@ -27,6 +27,9 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+Notes.md
+/assets
 
 # vercel
 .vercel
@@ -35,5 +38,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.env
-Notes.md
+
