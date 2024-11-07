@@ -19,7 +19,7 @@ https://mixpanel-map-app.onrender.com/
 ---  
 
   
-![map](<assets/Screenshot 2024-11-06 at 11.47.17 PM.png>)
+![map](assets/ss1.png)
 
 
 **2. Vote Buttons**
@@ -34,7 +34,7 @@ https://mixpanel-map-app.onrender.com/
 
 
   
-![vote screenshot](<assets/Screenshot 2024-11-06 at 11.08.05 PM.png>)
+![buttons](assets/ss2.png)
   
 
 

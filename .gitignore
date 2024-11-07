@@ -29,7 +29,6 @@ yarn-error.log*
 .env*.local
 .env
 Notes.md
-/assets
 
 # vercel
 .vercel
